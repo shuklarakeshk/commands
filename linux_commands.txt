@@ -1,0 +1,2 @@
+#Port Forwarding
+ssh -L 1622:127.0.0.1:6379 redis-host
