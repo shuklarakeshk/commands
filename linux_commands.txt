@@ -5,4 +5,5 @@ grep -iRn "pattern" .
 #grep find files which follows file name pattern with some text recursively
 grep -iRn "pattern" --include=*.java ./
 find . -name *.java -exec grep -Hn com {} \;
-
+#Check TCP connection using CURL
+curl -v telnet://127.0.0.1:8080
