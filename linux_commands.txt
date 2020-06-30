@@ -7,3 +7,4 @@ grep -iRn "pattern" --include=*.java ./
 find . -name *.java -exec grep -Hn com {} \;
 #Check TCP connection using CURL
 curl -v telnet://127.0.0.1:8080
+oc patch dc/deployment-example -p '{"spec":{"template":{"metadata":{"labels":{"version":"version1"}}}}}'
