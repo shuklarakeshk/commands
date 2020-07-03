@@ -7,4 +7,14 @@ grep -iRn "pattern" --include=*.java ./
 find . -name *.java -exec grep -Hn com {} \;
 #Check TCP connection using CURL
 curl -v telnet://127.0.0.1:8080
+
+
+#oc commands
 oc patch dc/deployment-example -p '{"spec":{"template":{"metadata":{"labels":{"version":"version1"}}}}}'
+
+oc set volume dc/deployment-example --add --name=my-volume -t configmap --mount-path=/myfile --configmap-name=my-configmap
+oc set volume dc/deployment-example --add --overwrite --name=my-volume -t configmap --mount-path=/myfile --configmap-name=my-configmap
+oc set volume dc/deployment-example --remove --name=my-volume 
+
+
+
