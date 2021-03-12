@@ -15,6 +15,3 @@ oc patch dc/deployment-example -p '{"spec":{"template":{"metadata":{"labels":{"v
 oc set volume dc/deployment-example --add --name=my-volume -t configmap --mount-path=/myfile --configmap-name=my-configmap
 oc set volume dc/deployment-example --add --overwrite --name=my-volume -t configmap --mount-path=/myfile --configmap-name=my-configmap
 oc set volume dc/deployment-example --remove --name=my-volume 
-
-
-

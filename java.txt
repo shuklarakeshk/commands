@@ -1,0 +1,6 @@
+--java ssl debug--
+-Djava.net.debug=ssl:handshake:verbose:keymanager:trustmanager -Djava.security.debug=access:stack
+-- get cert and import it in truststore --
+echo ""|openssl s_client -connect <host>:<port> -showcerts 2>/dev/null |openssl x509 -out certfile.cert
+keytool -importcert -file certfile.cert -keystore keystore.jks -alias '<aliasname>
+-Djavax.net.ssl.trustStore=keystore.jks -Djavax.net.ssl.trustStorePassword=<password>
