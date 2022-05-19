@@ -1,0 +1,7 @@
+# To start local kafka server
+  ## cd to KAFKA_HOME/bin
+  ## first start zookeeper
+  ./zookeeper-server-start.sh ../config/zookeeper.properties
+  ./kafka-server-start.sh ../config/server.properties
+# To create kafka topic
+  ./kafka-topics.sh --zookeeper 127.0.0.1:2181/kafka --create --topic test --replication-factor 1 --partitions 2
