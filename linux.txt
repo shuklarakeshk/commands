@@ -14,4 +14,9 @@ oc patch dc/deployment-example -p '{"spec":{"template":{"metadata":{"labels":{"v
 
 oc set volume dc/deployment-example --add --name=my-volume -t configmap --mount-path=/myfile --configmap-name=my-configmap
 oc set volume dc/deployment-example --add --overwrite --name=my-volume -t configmap --mount-path=/myfile --configmap-name=my-configmap
-oc set volume dc/deployment-example --remove --name=my-volume 
+oc set volume dc/deployment-example --remove --name=my-volume
+
+# list connection from container/pod in case of lsof/netstat not available
+find /proc/ 2>/dev/null | grep tcp | grep -v task | grep -v sys/net | xargs grep -v rem_address 2>/dev/null | awk '{x=strtonum("0x"substr($3,index($3,":")-2,2)); y=strtonum("0x"substr($4,index($4,":")-2,2)); for (i=5; i>0; i-=2) x = x"."strtonum("0x"substr($3,i,2)); for (i=5; i>0; i-=2) y = y"."strtonum("0x"substr($4,i,2))}{printf ("%s\t:%s\t ----> \t %s\t:%s\t%s\n",x,strtonum("0x"substr($3,index($3,":")+1,4)),y,strtonum("0x"substr($4,index($4,":")+1,4)),$1)}' | sort | uniq --check-chars=25
+
+find /proc/ 2>/dev/null | grep udp | grep -v task | grep -v sys/net | xargs grep -v rem_address 2>/dev/null | awk '{x=strtonum("0x"substr($3,index($3,":")-2,2)); y=strtonum("0x"substr($4,index($4,":")-2,2)); for (i=5; i>0; i-=2) x = x"."strtonum("0x"substr($3,i,2)); for (i=5; i>0; i-=2) y = y"."strtonum("0x"substr($4,i,2))}{printf ("%s\t:%s\t ----> \t %s\t:%s\t%s\n",x,strtonum("0x"substr($3,index($3,":")+1,4)),y,strtonum("0x"substr($4,index($4,":")+1,4)),$1)}' | sort | uniq --check-chars=25
