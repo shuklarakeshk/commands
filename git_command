@@ -1,5 +1,5 @@
 #copy to new repo
-    git clone --bare <old_repo>
-    cd <old_repo>
+    git clone --bare <old_repo_url>
+    cd <old_repo.git>
     git push --mirror <new_repo>
-    rm -rf <old_repo>
+    rm -rf <old_repo.git>
