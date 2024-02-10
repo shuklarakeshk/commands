@@ -1,4 +1,6 @@
--java 
+-java
+-- jvmargs
+   java -XX:+PrintFlagsFinal -XX:+UseZGC -XX:+ZGenerational --version
 --ssl debug
   -Djava.net.debug=ssl:handshake:verbose:keymanager:trustmanager -Djava.security.debug=access:stack
 --get cert and import it in truststore
