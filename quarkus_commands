@@ -1,0 +1,4 @@
+# create native image using gradle
+  ./gradlew clean build -Dquarkus.package.type=native
+# create native image using gradle with G1GC
+  ./gradlew clean build -Dquarkus.package.type=native -Dquarkus.native.additional-build-args=-H:+UseG1GC
