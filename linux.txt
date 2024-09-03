@@ -9,3 +9,15 @@ find . -name *.java -exec grep -Hn com {} \;
 curl -v telnet://127.0.0.1:8080
 ps -ef f
 ps -eo user,sz,rss,minflt,mjflt,pcpu,args
+
+#performance checks
+uptime
+dmesg|tail
+vmstat 1
+mpstat -P ALL 1
+pidstat 1
+iostat -xz 1
+free -m
+sar -n DEV 1
+sar -n TCP,ETCP 1
+top
