@@ -21,3 +21,18 @@ free -m
 sar -n DEV 1
 sar -n TCP,ETCP 1
 top
+
+#bcc tools
+dnf install bcc-tools
+export PATH=/usr/share/bcc/tools:$PATH
+execsnoop #<--- prints each execve() syscall with details
+opensnoop #<--- prints each open() syscall with details
+ext4slower #<-- traces ext4 FileSystem operations that exceed a threshold
+biolatency #<-- prints histogram of disk IO latency
+biosnoop #<-- prints each disk IO with latency
+cachestat #<-- shows stats from FileSystem cache
+tcpconnect  #<-- prints line for every active TCP connection ( connect())
+tcpaccept #<-- prints line for every passive TCP connection ( accept())
+tcpretrans #<-- prints line for every TCP retransmit
+runqlat #<-- shows how long threads were waiting for CPU
+profile #<-- cpu profiler , takes sample of stack traces and prints a summary of unique traces and their occurrence
